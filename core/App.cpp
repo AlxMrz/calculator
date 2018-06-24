@@ -103,7 +103,6 @@ void App::makeCalc(bool isNewAction) {
         string str = strs.str();
         this->leftOperand = str;
     }
-
 }
 
 void App::prepareOutput(string& insertedValue, bool isNewAction) {
