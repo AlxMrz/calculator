@@ -22,13 +22,18 @@ public:
 
     App(int argc, char **argv);
     void run();
-    static void myCallback(Fl_Widget *w, void *data);
+    static void clickButton(Fl_Widget *w, void *data);
+    void changeOutputValue();
+
+    void makeCalc(bool isNewValue);
+    void prepareOutput(string& insertedValue, bool isNewAction);
+
+
     static void resetOutput(Fl_Widget *w, void *data);
 private:
     void startWindow();
     void endWindow();
-    void createBox(int x, int y, int width, int height, string title);
-    void createBotton(int x, int y, int width, int height, string title);
+    void createUI();
     bool isNewAction(string action);
     
 };
