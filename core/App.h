@@ -8,19 +8,15 @@ using namespace std;
 
 class App {
 public:
-  
     int argc;
     char **argv;
     UI ui;
     Calculator calc;
+    
     App(int argc, char **argv);
     void run();
-    void prepareOutput(string& insertedValue, bool isNewAction);
 private:
     void createUI();
-    
-    
 };
-
 #endif /* APP_H */
 

@@ -8,6 +8,7 @@
 #include <FL/Fl_Box.H>
 #include <FL/Fl_Output.H>
 using namespace std;
+
 class App;
 
 class UI {
@@ -19,13 +20,13 @@ public:
     map< string, Fl_Box* > flBox;
     map< string, Fl_Button*> flButtons;
     Fl_Output *output;
+    
     void startWindow();
     void createUI();
     void endWindow();
     void changeOutputValue();
+    void prepareOutput(string& insertedValue, bool isNewAction);
     static void resetOutput(Fl_Widget *w, void *data);
     static void clickButton(Fl_Widget *w, void *data);
 };
-
 #endif /* UI_H */
-

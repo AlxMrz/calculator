@@ -18,7 +18,7 @@ CCADMIN =
 
 
 # Define the target directories.
-TARGETDIR_calculator=GNU-amd64-Linux
+TARGETDIR_calculator=dist
 
 
 all: $(TARGETDIR_calculator)/calculator

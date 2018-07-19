@@ -69,7 +69,7 @@ void UI::clickButton(Fl_Widget* w, void* data) {
     bool isNewAction = app->calc.isNewAction(insertedValue);
 
     app->calc.makeCalc(isNewAction);
-    app->prepareOutput(insertedValue, isNewAction);
+    app->ui.prepareOutput(insertedValue, isNewAction);
     app->ui.changeOutputValue();
 }
 
@@ -90,4 +90,15 @@ void UI::endWindow() {
     this->flWindow->end();
     this->flWindow->show(this->app->argc, this->app->argv);
     Fl::run();
+}
+
+void UI::prepareOutput(string& insertedValue, bool isNewAction) {
+    if (this->app->calc.action != "" && !isNewAction) {
+        this->app->calc.rightOperand += insertedValue;
+    } else if (!isNewAction) {
+        this->app->calc.leftOperand += insertedValue;
+    }
+    if (this->app->calc.isNewAction(insertedValue) && this->app->calc.rightOperand == "" && this->app->calc.action != "" && insertedValue != "=") {
+        this->app->calc.action = insertedValue;
+    }
 }
