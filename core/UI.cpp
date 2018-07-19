@@ -66,23 +66,23 @@ void UI::clickButton(Fl_Widget* w, void* data) {
     App *app = ((App *) data);
     const char * insertedRawValue = w->label();
     string insertedValue = (string) insertedRawValue;
-    bool isNewAction = app->isNewAction(insertedValue);
+    bool isNewAction = app->calc.isNewAction(insertedValue);
 
-    app->makeCalc(isNewAction);
+    app->calc.makeCalc(isNewAction);
     app->prepareOutput(insertedValue, isNewAction);
     app->ui.changeOutputValue();
 }
 
 void UI::changeOutputValue() {
-    string result = this->app->leftOperand + this->app->action + this->app->rightOperand;
+    string result = this->app->calc.leftOperand + this->app->calc.action + this->app->calc.rightOperand;
     this->output->value(result.c_str());
 }
 
 void UI::resetOutput(Fl_Widget* w, void* data) {
     App *app = ((App *) data);
-    app->leftOperand = "";
-    app->action = "";
-    app->rightOperand = "";
+    app->calc.leftOperand = "";
+    app->calc.action = "";
+    app->calc.rightOperand = "";
     app->ui.output->value("");
 }
 

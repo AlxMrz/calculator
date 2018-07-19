@@ -3,29 +3,20 @@
 #include <map>
 #include <string>
 #include "UI.h"
+#include "Calculator.h"
 using namespace std;
 
 class App {
 public:
   
-    string leftOperand= "";
-    string action= "";
-    string rightOperand= "";
     int argc;
     char **argv;
     UI ui;
-
+    Calculator calc;
     App(int argc, char **argv);
     void run();
-    
-
-    void makeCalc(bool isNewValue);
     void prepareOutput(string& insertedValue, bool isNewAction);
-    bool isNewAction(string action);
-
-    
 private:
-
     void createUI();
     
     

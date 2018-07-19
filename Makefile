@@ -27,7 +27,7 @@ all: $(TARGETDIR_calculator)/calculator
 CPPFLAGS_calculator = 
 OBJS_calculator =  \
 	$(TARGETDIR_calculator)/main.o
-USERLIBS_calculator =  $(SYSLIBS_calculator) core/App.h core/App.cpp core/UI.h core/UI.cpp -lfltk
+USERLIBS_calculator =  $(SYSLIBS_calculator) core/App.h core/App.cpp core/UI.h core/UI.cpp core/Calculator.h core/Calculator.cpp -lfltk
 DEPLIBS_calculator =   
 LDLIBS_calculator = $(USERLIBS_calculator)
 
