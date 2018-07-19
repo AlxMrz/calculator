@@ -2,39 +2,32 @@
 #define APP_H
 #include <map>
 #include <string>
-#include <FL/Fl_Button.H>
-#include <FL/Fl_Window.H>
-#include <FL/Fl_Box.H>
-#include <FL/Fl_Output.H>
+#include "UI.h"
 using namespace std;
 
 class App {
 public:
-    Fl_Window *flWindow;
-    map< string, Fl_Box* > flBox;
-    map< string, Fl_Button*> flButtons;
+  
     string leftOperand= "";
     string action= "";
     string rightOperand= "";
     int argc;
     char **argv;
-    Fl_Output *output;
+    UI ui;
 
     App(int argc, char **argv);
     void run();
-    static void clickButton(Fl_Widget *w, void *data);
-    void changeOutputValue();
+    
 
     void makeCalc(bool isNewValue);
     void prepareOutput(string& insertedValue, bool isNewAction);
-
-
-    static void resetOutput(Fl_Widget *w, void *data);
-private:
-    void startWindow();
-    void endWindow();
-    void createUI();
     bool isNewAction(string action);
+
+    
+private:
+
+    void createUI();
+    
     
 };
 
